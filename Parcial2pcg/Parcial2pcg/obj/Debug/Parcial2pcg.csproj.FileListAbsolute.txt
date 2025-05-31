@@ -1,0 +1,4 @@
+D:\SIS457Parcial2pcg\Parcial2pcg\Parcial2pcg\obj\Debug\Parcial2pcg.csproj.AssemblyReference.cache
+D:\SIS457Parcial2pcg\Parcial2pcg\Parcial2pcg\obj\Debug\Parcial2pcg.Properties.Resources.resources
+D:\SIS457Parcial2pcg\Parcial2pcg\Parcial2pcg\obj\Debug\Parcial2pcg.csproj.GenerateResource.cache
+D:\SIS457Parcial2pcg\Parcial2pcg\Parcial2pcg\obj\Debug\Parcial2pcg.csproj.CoreCompileInputs.cache

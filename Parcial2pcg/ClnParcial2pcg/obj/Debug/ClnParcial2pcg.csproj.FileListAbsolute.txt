@@ -1,0 +1,2 @@
+D:\SIS457Parcial2pcg\Parcial2pcg\ClnParcial2pcg\obj\Debug\ClnParcial2pcg.csproj.AssemblyReference.cache
+D:\SIS457Parcial2pcg\Parcial2pcg\ClnParcial2pcg\obj\Debug\ClnParcial2pcg.csproj.CoreCompileInputs.cache
