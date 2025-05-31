@@ -14,6 +14,8 @@ namespace CadParcial2pcg
         public string Director { get; set; }
         public int Episodios { get; set; }
         public DateTime FechaEstreno { get; set; }
+        public string UrlPortada { get; set; }
+        public string IdiomaOriginal { get; set; }
         public short Estado { get; set; }
     }
 }

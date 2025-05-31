@@ -22,6 +22,20 @@ CREATE TABLE Serie (
     sinopsis VARCHAR(5000) NOT NULL,
     director VARCHAR(100) NOT NULL,
     episodios INT NOT NULL,
+    urlPortada VARCHAR(500) NOT NULL,
+    idiomaOriginal VARCHAR(100) NOT NULL,
     fechaEstreno DATE NOT NULL DEFAULT GETDATE(),
     estado SMALLINT NOT NULL
 );
+select*from Serie
+go
+alter PROC paSerieListar @parametro VARCHAR(100)
+AS
+  SELECT * FROM Serie
+  WHERE estado<>-1 and titulo+sinopsis+director LIKE '%'+REPLACE(@parametro,' ','%')+'%'
+  ORDER BY estado desc, titulo ASC;
+  
+  exec paSerieListar '';
+
+insert into Serie(titulo,sinopsis,director,episodios,fechaEstreno,estado,urlPortada,idiomaOriginal)
+values('Stranger Thing','Serie','Duffer',3,'2025-08-03',4,'www.example.jpg','Ingles')

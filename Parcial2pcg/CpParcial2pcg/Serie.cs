@@ -18,13 +18,18 @@ namespace CpParcial2pcg
         public Serie()
         {
             InitializeComponent();
-            CargarSeries();
         }
 
         private void CargarSeries()
         {
             dgvSeries.DataSource = servicio.ObtenerSeries();
-            dgvSeries.Columns["Estado"].Visible = false;
+            dgvSeries.Columns["Titulo"].HeaderText = "Título";
+            dgvSeries.Columns["Sinopsis"].HeaderText = "Sinopsis";
+            dgvSeries.Columns["Director"].HeaderText = "Director";
+            dgvSeries.Columns["Episodios"].HeaderText = "Episodios";
+            dgvSeries.Columns["FechaEstreno"].HeaderText = "Fecha de Estreno";
+            dgvSeries.Columns["urlPortada"].HeaderText = "Url Portada";
+            dgvSeries.Columns["idiomaOriginal"].HeaderText = "Idioma Originla";
         }
 
         private void lblCedulaIdentidad_Click(object sender, EventArgs e)
@@ -33,6 +38,11 @@ namespace CpParcial2pcg
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

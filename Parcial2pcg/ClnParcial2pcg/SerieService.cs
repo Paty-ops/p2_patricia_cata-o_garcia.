@@ -9,49 +9,65 @@ namespace ClnParcial2pcg
 {
     public class SerieService
     {
-        private readonly Parcial2PcgContext _context;
-
-        public SerieService()
+        public static int insertar(Serie serie)
         {
-            _context = new Parcial2PcgContext();
-        }
-
-        public List<Serie> ObtenerSeries()
-        {
-            return _context.Series.Where(s => s.Estado == 1).ToList();
-        }
-
-        public void AgregarSerie(Serie s)
-        {
-            s.Estado = 1;
-            _context.Series.Add(s);
-            _context.SaveChanges();
-        }
-
-        public void ActualizarSerie(Serie s)
-        {
-            var serieExistente = _context.Series.Find(s.Id);
-            if (serieExistente != null)
+            using (var context = new Parcial2pcgEntities())
             {
-                serieExistente.Titulo = s.Titulo;
-                serieExistente.Sinopsis = s.Sinopsis;
-                serieExistente.Director = s.Director;
-                serieExistente.Episodios = s.Episodios;
-                serieExistente.FechaEstreno = s.FechaEstreno;
-                _context.SaveChanges();
+                context.Serie.Add(serie);
+                context.SaveChanges();
+                return serie.id;
             }
         }
 
-        public void EliminarSerieLogicamente(int id)
+        public static int actualizar(Serie serie)
         {
-            var serie = _context.Series.Find(id);
-            if (serie != null)
+            using (var context = new Parcial2pcgEntities())
             {
-                serie.Estado = 0;
-                _context.SaveChanges();
+                var existente = context.Serie.Find(serie.id);
+                existente.titulo = serie.titulo;
+                existente.sinopsis = serie.sinopsis;
+                existente.director = serie.director;
+                existente.episodios = serie.episodios;
+                existente.fechaEstreno = serie.fechaEstreno;
+                existente.estado = serie.estado;
+                existente.urlPortada = serie.urlPortada;
+                existente.idiomaOriginal = serie.idiomaOriginal;
+                return context.SaveChanges();
             }
         }
-    }
-}
+
+        public static int eliminar(int id, string usuario)
+        {
+            using (var context = new Parcial2pcgEntities())
+            {
+                var serie = context.Serie.Find(id);
+                serie.estado = -1;
+                return context.SaveChanges();
+            }
+        }
+
+        public static Serie obtenerUno(int id)
+        {
+            using (var context = new Parcial2pcgEntities())
+            {
+                return context.Serie.Find(id);
+            }
+        }
+
+        public static List<Serie> listar()
+        {
+            using (var context = new Parcial2pcgEntities())
+            {
+                return context.Serie.Where(x => x.estado != -1).ToList();
+            }
+        }
+
+        public static List<paSerieListar_Result> listarPa(string parametro)
+        {
+            using (var context = new Parcial2pcgEntities())
+            {
+                return context.paSerieListar(parametro).ToList();
+            }
+        }
     }
 }

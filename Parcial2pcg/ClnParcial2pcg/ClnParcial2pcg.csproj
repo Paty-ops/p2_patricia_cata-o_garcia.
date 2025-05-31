@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Parcial2pcgEntities.cs" />
     <Compile Include="SerieService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
